@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokenote/datasource/pokenote_local_datasource.dart';
+import 'package:pokenote/main.dart';
 import 'package:pokenote/model/pokenote.dart';
 import 'package:pokenote/ui/widgets/pokenote_add_dialog.dart';
 import 'dart:io' show Platform;
@@ -32,7 +33,17 @@ class _PokenoteScreenState extends State<PokenoteScreen> {
   @override
   void initState() {
     controller = TextEditingController();
-    pokeNotes = datasource.getAllPokeNotes();
+    initializePokeNoteApp().then((value) {
+      pokeNotes = datasource.getAllPokeNotes();
+      setState(() {});
+    },
+      onError: (error) {
+      openPokeNoteHiveBox().then((value){
+        pokeNotes = datasource.getAllPokeNotes();
+        setState(() {});
+      });
+      }
+    );
   }
 
   @override

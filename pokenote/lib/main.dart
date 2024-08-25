@@ -5,10 +5,18 @@ import 'package:pokenote/ui/screen/pokenote_screen.dart';
 
 late Box<PokeNote> hiveDb;
 
-void main() async {
+Future<void> initializePokeNoteApp() async {
   await Hive.initFlutter();
   Hive.registerAdapter(PokeNoteAdapter());
+  openPokeNoteHiveBox();
+}
+
+Future<void> openPokeNoteHiveBox() async {
   hiveDb = await Hive.openBox<PokeNote>('pokenotes');
+}
+
+void main() async {
+  initializePokeNoteApp();
   runApp(const MyApp());
 }
 
