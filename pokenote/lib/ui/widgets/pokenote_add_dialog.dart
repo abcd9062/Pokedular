@@ -21,10 +21,6 @@ class PokenoteAddDialog {
             child: SingleChildScrollView(
               child: ListBody(
                 children: <Widget>[
-                  const Padding(
-                    padding: EdgeInsets.only(left: 6),
-                    child: Text('Enter note*',  style: TextStyle(fontWeight: FontWeight.bold)),
-                  ),
                   TextField(
                     maxLines: 3,
                     controller: noteController,
