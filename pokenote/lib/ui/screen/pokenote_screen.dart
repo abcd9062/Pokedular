@@ -38,6 +38,7 @@ class _PokenoteScreenState extends State<PokenoteScreen> {
       setState(() {});
     },
       onError: (error) {
+      // Getting this error block when Adapter is going to register with same typeID which is not required
       openPokeNoteHiveBox().then((value){
         pokeNotes = datasource.getAllPokeNotes();
         setState(() {});
