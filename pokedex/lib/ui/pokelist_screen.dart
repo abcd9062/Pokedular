@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/datasource/poke_remote_datasource.dart';
 import 'package:pokedex/models/pokemon_response.dart';
@@ -37,7 +38,9 @@ class _PokelistScreenState extends State<PokelistScreen> {
       body: SizedBox(
         width: MediaQuery.sizeOf(context).width,
         height: MediaQuery.sizeOf(context).height,
-        child: ListView.builder(
+        child: isLoading ? const Center(
+          child: CircularProgressIndicator(),
+        ) : ListView.builder(
           shrinkWrap: true,
             itemCount: pokeList.length,
             itemBuilder: (context, pos) {
@@ -48,13 +51,18 @@ class _PokelistScreenState extends State<PokelistScreen> {
                       side: const BorderSide(width: 1),
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    leading: Image.network(
-                        "${AppConstants.pokeBaseImageUrl}/${pos+1}.png",
+                    leading: Hero(
+                      tag: pokeList[pos].name ?? "PokeMon",
+                      child: Image.network(
+                          "${AppConstants.pokeBaseImageUrl}/${pos+1}.png",
+                      ),
                     ),
                     title: Text(pokeList[pos].name ?? "PokeMon"),
                     tileColor: Colors.black12,
                     onTap:() {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => PokeDetailsScreen()));
+                      Navigator.push(context, CupertinoPageRoute(builder: (context) => PokeDetailsScreen(
+                        pokeName: pokeList[pos].name ?? "PokeMon", pokeImgUrl: "${AppConstants.pokeBaseImageUrl}/${pos+1}.png",
+                      )));
                     } ,
                   ),
               );
