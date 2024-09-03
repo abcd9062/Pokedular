@@ -3,6 +3,7 @@ import 'package:poke_multimodular_demo/home_screen.dart';
 import 'package:pokenote/main.dart';
 
 void main() async {
+  await initializePokeNoteApp();
   runApp(const MyApp());
 }
 

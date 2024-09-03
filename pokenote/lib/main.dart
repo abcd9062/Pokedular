@@ -8,7 +8,7 @@ late Box<PokeNote> hiveDb;
 Future<void> initializePokeNoteApp() async {
   await Hive.initFlutter();
   Hive.registerAdapter(PokeNoteAdapter());
-  openPokeNoteHiveBox();
+  await openPokeNoteHiveBox();
 }
 
 Future<void> openPokeNoteHiveBox() async {
@@ -16,7 +16,7 @@ Future<void> openPokeNoteHiveBox() async {
 }
 
 void main() async {
-  initializePokeNoteApp();
+  await initializePokeNoteApp();
   runApp(const MyApp());
 }
 
