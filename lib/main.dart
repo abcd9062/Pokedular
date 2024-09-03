@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:poke_multimodular_demo/home_screen.dart';
+import 'package:poke_multimodular_demo/home_screen_1.dart';
 import 'package:pokenote/main.dart';
+
+import 'home_screen_2.dart';
 
 void main() async {
   await initializePokeNoteApp();
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: const HomeScreen2(),
     );
   }
 }
