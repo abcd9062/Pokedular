@@ -3,6 +3,8 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:pokenote/model/pokenote.dart';
 import 'package:pokenote/ui/screen/pokenote_screen.dart';
 
+import 'core/route/pokenote_route.dart';
+
 late Box<PokeNote> hiveDb;
 
 Future<void> initializePokeNoteApp() async {
@@ -26,13 +28,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const PokenoteScreen(),
+      routerConfig: pokeNoteRouter,
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pokedex/ui/pokelist_screen.dart';
 import 'package:pokenote/ui/screen/pokenote_screen.dart';
 
@@ -35,8 +36,9 @@ class _HomeScreenState extends State<HomeScreen1> {
                     padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
                     child: InkWell(
                       onTap: (){
+                        context.goNamed("pokelist");
                         // Open Pokedex app
-                        Navigator.push(context, MaterialPageRoute(builder: (_) => PokelistScreen()));
+                       // Navigator.push(context, MaterialPageRoute(builder: (_) => PokelistScreen()));
                       },
                       child: Container(
                         height: 50,
@@ -52,7 +54,8 @@ class _HomeScreenState extends State<HomeScreen1> {
                     child: InkWell(
                       onTap: (){
                         // Open pokenotes app
-                        Navigator.push(context, MaterialPageRoute(builder: (_) => const PokenoteScreen()));
+                        context.goNamed("pokenote");
+                        //Navigator.push(context, MaterialPageRoute(builder: (_) => const PokenoteScreen()));
                       },
                       child: Container(
                         height: 50,

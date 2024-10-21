@@ -1,5 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pokedex/core/routes/pokedex_route.dart';
 import 'package:pokedex/datasource/poke_remote_datasource.dart';
 import 'package:pokedex/models/pokemon_response.dart';
 import 'package:pokedex/ui/poke_details_screen.dart';
@@ -60,9 +64,11 @@ class _PokelistScreenState extends State<PokelistScreen> {
                     title: Text(pokeList[pos].name ?? "PokeMon"),
                     tileColor: Colors.black12,
                     onTap:() {
-                      Navigator.push(context, CupertinoPageRoute(builder: (context) => PokeDetailsScreen(
-                        pokeName: pokeList[pos].name ?? "PokeMon", pokeImgUrl: "${AppConstants.pokeBaseImageUrl}/${pos+1}.png",
-                      )));
+                      log("${AppConstants.pokeBaseImageUrl}/${pos+1}.png");
+                      // Navigator.push(context, CupertinoPageRoute(builder: (context) => PokeDetailsScreen(
+                      //   pokeName: pokeList[pos].name ?? "PokeMon", pokeImgUrl: "${AppConstants.pokeBaseImageUrl}/${pos+1}.png",
+                      // )));
+                      context.goNamed("pokedetails", pathParameters: {'pokeName': pokeList[pos].name ?? "PokeMon", 'pokeImgUrl': "${AppConstants.pokeBaseImageUrl}/${pos+1}.png"});
                     } ,
                   ),
               );
