@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/pokedex_viewmodel.dart';
 import 'package:pokedex/ui/pokelist_screen.dart';
+import 'package:provider/provider.dart';
 
 import 'core/routes/pokedex_route.dart';
 
@@ -11,13 +13,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'PokeDex',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => PokeDexViewModel())
+      ],
+      child: MaterialApp.router(
+        title: 'PokeDex',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        routerConfig: pokeDexRouter,
       ),
-      routerConfig: pokeDexRouter,
     );
   }
 }
