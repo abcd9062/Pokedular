@@ -46,7 +46,7 @@ class _PokelistScreenState extends State<PokelistScreen> {
 
   Future<void> _handlePullToRefresh() async {
     pokeDexViewModel.resetPokeList();
-    pokeDexViewModel.setNetworkState(NetworkState.loading);
+  //  pokeDexViewModel.setNetworkState(NetworkState.loading);
     pokeDexViewModel.fetchPokeList();
   }
 
