@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/core/theme/global_theme_data.dart';
 import 'package:pokedex/pokedex_viewmodel.dart';
 import 'package:pokedex/ui/pokelist_screen.dart';
 import 'package:provider/provider.dart';
@@ -20,9 +21,9 @@ class MyApp extends StatelessWidget {
       child: MaterialApp.router(
         title: 'PokeDex',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        themeMode: ThemeMode.dark,
+        theme: GlobalThemeData.lightThemeData,
+        darkTheme: GlobalThemeData.darkThemeData,
         routerConfig: pokeDexRouter,
       ),
     );
