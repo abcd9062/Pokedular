@@ -1,10 +1,15 @@
 import 'dart:developer';
 
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:pokedex/core/helpers/network_states.dart';
 import 'package:pokedex/core/network/network_info.dart';
 import 'package:pokedex/pokedex_viewmodel.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pokedex/core/routes/pokedex_route.dart';
+import 'package:pokedex/datasource/poke_remote_datasource.dart';
+import 'package:pokedex/models/pokemon_response.dart';
+import 'package:pokedex/ui/poke_details_screen.dart';
 import 'package:pokedex/utils/constants.dart';
 import 'package:provider/provider.dart';
 

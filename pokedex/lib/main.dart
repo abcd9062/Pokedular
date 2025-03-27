@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 
 import 'core/routes/pokedex_route.dart';
 
+import 'core/routes/pokedex_route.dart';
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
